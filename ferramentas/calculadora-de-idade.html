@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-PT" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Idade: Anos, Meses e Dias | SmartTools Hub</title>
+<meta name="description" content="Calcule a sua idade exata em anos, meses e dias, o total de dias vividos, o próximo aniversário e os dias que faltam. Considera anos bissextos e 29 de fevereiro.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://www.smarttoolshub.com/ferramentas/calculadora-de-idade.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartTools Hub">
+<meta property="og:title" content="Calculadora de Idade: Anos, Meses e Dias | SmartTools Hub">
+<meta property="og:description" content="Idade exata, total de dias vividos e contagem decrescente para o próximo aniversário.">
+<meta property="og:url" content="https://www.smarttoolshub.com/ferramentas/calculadora-de-idade.html">
+<meta property="og:image" content="https://www.smarttoolshub.com/assets/img/og-default.svg">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('sth-theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Calculadora de Idade",
+      "url": "https://www.smarttoolshub.com/ferramentas/calculadora-de-idade.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Qualquer navegador moderno",
+      "inLanguage": "pt-PT",
+      "description": "Calcula a idade exata em anos, meses e dias, totais acumulados e o próximo aniversário.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "isPartOf": { "@id": "https://www.smarttoolshub.com/#website" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como é calculada a idade exata?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A idade é calculada por diferença de calendário: subtraem-se os anos, depois os meses e, por fim, os dias. Quando o dia do mês de referência é anterior ao dia de nascimento, é pedido emprestado um mês e somado o número de dias do mês anterior." }
+        },
+        {
+          "@type": "Question",
+          "name": "Como são tratadas as pessoas nascidas a 29 de fevereiro?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Em anos não bissextos, a ferramenta considera o aniversário a 28 de fevereiro, uma convenção habitual. A pessoa continua a ter a idade correta porque o cálculo usa o calendário e não apenas a data comemorativa." }
+        },
+        {
+          "@type": "Question",
+          "name": "Porque é que o total de meses pode diferir de algumas calculadoras?",
+          "acceptedAnswer": { "@type": "Answer", "text": "O total de meses é obtido a partir dos anos e meses completos (anos × 12 + meses), e não dividindo o número total de dias por 30. Este método evita erros acumulados e reflete meses de calendário reais." }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso calcular a idade numa data passada ou futura?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sim. O campo de data de referência permite escolher qualquer data igual ou posterior à data de nascimento, o que é útil para calcular a idade numa data histórica ou numa data futura." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-base="../" data-page="tools">
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo principal</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html" aria-label="SmartTools Hub — Página inicial">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></svg></span>
+      <span class="brand-text"><strong>SmartTools Hub</strong><small>Simple Tools. Smart Solutions.</small></span>
+    </a>
+    <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../tools.html" aria-current="page">Ferramentas</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../about.html">Sobre Nós</a></li>
+        <li><a href="../contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Ativar modo escuro" title="Alternar modo claro e escuro">
+        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v1.8"/><path d="M12 19.7v1.8"/><path d="M4.2 4.2l1.3 1.3"/><path d="M18.5 18.5l1.3 1.3"/><path d="M2.5 12h1.8"/><path d="M19.7 12h1.8"/><path d="M4.2 19.8l1.3-1.3"/><path d="M18.5 5.5l1.3-1.3"/></svg>
+        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay"></div>
+
+<main id="conteudo">
+  <section class="section section--tight">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Navegação estrutural">
+        <ol>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../tools.html">Ferramentas</a></li>
+          <li><span aria-current="page">Calculadora de Idade</span></li>
+        </ol>
+      </nav>
+
+      <div class="section-head">
+        <span class="eyebrow">Calculadoras</span>
+        <h1>Calculadora de Idade</h1>
+        <p class="lead">Introduza a data de nascimento e descubra a idade exata em anos, meses e dias, o total de dias vividos e quantos dias faltam para o próximo aniversário. O cálculo respeita anos bissextos e datas de 29 de fevereiro.</p>
+      </div>
+
+      <div class="tool-layout" id="calculadora-idade">
+        <div class="panel">
+          <div class="panel-head"><h2>Datas</h2></div>
+
+          <div class="field">
+            <label for="data-nascimento">Data de nascimento</label>
+            <input class="input" id="data-nascimento" type="date" max="9999-12-31" aria-describedby="data-nascimento-erro">
+            <span class="field-error" id="data-nascimento-erro" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="data-referencia">Calcular a idade em</label>
+            <input class="input" id="data-referencia" type="date" max="9999-12-31" aria-describedby="data-referencia-erro">
+            <span class="field-error" id="data-referencia-erro" role="alert"></span>
+            <span class="hint">Deixe como está para usar a data de hoje.</span>
+          </div>
+
+          <div class="alert alert--error" id="idade-alerta" role="alert" hidden></div>
+
+          <div class="tool-actions">
+            <button class="btn btn-primary" type="button" id="btn-copiar-idade">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copiar resultado
+            </button>
+            <button class="btn btn-secondary" type="button" id="btn-hoje">Usar hoje</button>
+            <button class="btn btn-danger-ghost" type="button" id="btn-limpar-idade">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4.5A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5V6"/><path d="M6 6v13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+              Limpar
+            </button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h2>Resultado</h2></div>
+
+          <div class="result-box" id="idade-resultado">
+            <span class="result-label">Idade</span>
+            <span class="result-value" id="resultado-idade">—</span>
+            <span class="result-detail" id="resultado-idade-detalhe">Introduza a sua data de nascimento para calcular.</span>
+          </div>
+
+          <div class="stats mt-2">
+            <div class="stat"><span class="stat-label">Total de dias</span><span class="stat-value stat-value--text" id="stat-idade-dias">—</span></div>
+            <div class="stat"><span class="stat-label">Total de semanas</span><span class="stat-value stat-value--text" id="stat-idade-semanas">—</span></div>
+            <div class="stat"><span class="stat-label">Total de meses</span><span class="stat-value stat-value--text" id="stat-idade-meses">—</span></div>
+            <div class="stat"><span class="stat-label">Total de horas</span><span class="stat-value stat-value--text" id="stat-idade-horas">—</span></div>
+            <div class="stat"><span class="stat-label">Nasceu num(a)</span><span class="stat-value stat-value--text" id="stat-dia-semana">—</span></div>
+            <div class="stat"><span class="stat-label">Próximo aniversário</span><span class="stat-value stat-value--text" id="stat-proximo-aniversario">—</span></div>
+            <div class="stat"><span class="stat-label">Faltam</span><span class="stat-value stat-value--text" id="stat-dias-aniversario">—</span></div>
+            <div class="stat"><span class="stat-label">29 de fevereiro vividos</span><span class="stat-value stat-value--text" id="stat-bissextos">—</span></div>
+          </div>
+
+          <div class="mt-2" id="idade-passos-caixa">
+            <h3>Como o cálculo foi feito</h3>
+            <ol class="steps" id="idade-passos"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <aside class="ad-slot ad-slot--inline" data-ad-slot="" aria-label="Espaço reservado para publicidade"></aside>
+  </div>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="prose">
+        <h2>Como usar a calculadora de idade</h2>
+        <ol>
+          <li>Selecione a <strong>data de nascimento</strong> no calendário.</li>
+          <li>Se quiser saber a idade numa data específica, altere o campo <strong>Calcular a idade em</strong>. Caso contrário, deixe a data de hoje.</li>
+          <li>O resultado aparece automaticamente com a idade exata e as estatísticas acumuladas.</li>
+          <li>Use <strong>Copiar resultado</strong> para guardar o texto ou <strong>Limpar</strong> para recomeçar.</li>
+        </ol>
+        <p>A data de referência tem de ser igual ou posterior à data de nascimento. Se introduzir uma data futura no campo de nascimento, a ferramenta avisa em vez de apresentar uma idade negativa.</p>
+
+        <h2>Como a idade é calculada</h2>
+        <p>Calcular a idade parece simples, mas os meses têm entre 28 e 31 dias e os anos podem ter 365 ou 366 dias. Por isso, a idade não pode ser obtida dividindo o total de dias por 365.</p>
+        <p>O método correto trabalha com o calendário:</p>
+        <ol>
+          <li>Subtrai-se o ano de nascimento ao ano de referência.</li>
+          <li>Subtrai-se o mês de nascimento ao mês de referência.</li>
+          <li>Subtrai-se o dia de nascimento ao dia de referência.</li>
+          <li>Se o número de dias for negativo, retira-se um mês e soma-se o número de dias do mês anterior à data de referência.</li>
+          <li>Se o número de meses for negativo, retira-se um ano e somam-se doze meses.</li>
+        </ol>
+        <p>Este processo produz o número de anos, meses e dias completos, que é a forma como a idade é normalmente comunicada.</p>
+
+        <h3>Exemplo</h3>
+        <p>Nascimento a 15 de março de 1990 e referência a 10 de janeiro de 2026:</p>
+        <ul>
+          <li>Anos: 2026 − 1990 = 36</li>
+          <li>Meses: 1 (janeiro) − 3 (março) = −2 → 36 anos − 1 = 35 anos e −2 + 12 = 10 meses</li>
+          <li>Dias: 10 − 15 = −5 → 10 meses − 1 = 9 meses e −5 + 31 (dias de dezembro) = 26 dias</li>
+          <li>Resultado: <strong>35 anos, 9 meses e 26 dias</strong></li>
+        </ul>
+
+        <h2>Anos bissextos e 29 de fevereiro</h2>
+        <p>Um ano é bissexto quando é divisível por 4, exceto os anos divisíveis por 100 que não sejam divisíveis por 400. Por isso, 2000 foi bissexto, mas 1900 não foi. Nos anos bissextos, fevereiro tem 29 dias.</p>
+        <p>Quem nasce a 29 de fevereiro não tem essa data na maioria dos anos. A convenção mais comum, adotada nesta ferramenta, é considerar o aniversário a <strong>28 de fevereiro</strong> nos anos não bissextos. A idade calculada mantém-se correta porque assenta no calendário real e não apenas na data comemorativa.</p>
+        <p>A ferramenta mostra também quantos dias 29 de fevereiro a pessoa já viveu, o que ajuda a visualizar o efeito dos anos bissextos.</p>
+
+        <h2>Exemplos práticos</h2>
+        <h3>Candidatura a emprego ou concurso</h3>
+        <p>Muitos formulários pedem a idade em anos completos numa data de referência. Introduza essa data no campo <strong>Calcular a idade em</strong> para obter o valor exato a preencher.</p>
+
+        <h3>Documentos e processos legais</h3>
+        <p>Para verificar maioridade, elegibilidade ou prazos, é útil saber a idade exata e também o total de dias vividos, disponível nas estatísticas.</p>
+
+        <h3>Saúde e pediatria</h3>
+        <p>Nos primeiros meses de vida, a idade é frequentemente expressa em meses e dias. A calculadora apresenta exatamente esse formato, o que facilita o preenchimento de boletins de saúde.</p>
+
+        <h3>Curiosidade pessoal</h3>
+        <p>Saber quantos dias faltam para o próximo aniversário e em que dia da semana ele cai ajuda a planear celebrações com antecedência.</p>
+
+        <h2>Perguntas frequentes</h2>
+        <div class="faq">
+          <details>
+            <summary>Como é calculada a idade exata?</summary>
+            <div class="faq-body"><p>A idade é calculada por diferença de calendário: subtraem-se os anos, depois os meses e, por fim, os dias. Quando o dia do mês de referência é anterior ao dia de nascimento, é pedido emprestado um mês e somado o número de dias do mês anterior.</p></div>
+          </details>
+          <details>
+            <summary>Como são tratadas as pessoas nascidas a 29 de fevereiro?</summary>
+            <div class="faq-body"><p>Em anos não bissextos, a ferramenta considera o aniversário a 28 de fevereiro, uma convenção habitual. A pessoa continua a ter a idade correta porque o cálculo usa o calendário e não apenas a data comemorativa.</p></div>
+          </details>
+          <details>
+            <summary>Porque é que o total de meses pode diferir de algumas calculadoras?</summary>
+            <div class="faq-body"><p>O total de meses é obtido a partir dos anos e meses completos (anos × 12 + meses), e não dividindo o número total de dias por 30. Este método evita erros acumulados e reflete meses de calendário reais.</p></div>
+          </details>
+          <details>
+            <summary>Posso calcular a idade numa data passada ou futura?</summary>
+            <div class="faq-body"><p>Sim. O campo de data de referência permite escolher qualquer data igual ou posterior à data de nascimento, o que é útil para calcular a idade numa data histórica ou numa data futura.</p></div>
+          </details>
+          <details>
+            <summary>As horas e os dias têm em conta o fuso horário?</summary>
+            <div class="faq-body"><p>Não. O cálculo usa datas de calendário (ano, mês e dia) e não horas. Assim, o resultado é o mesmo em qualquer fuso horário e não é afetado pela mudança de hora.</p></div>
+          </details>
+          <details>
+            <summary>Os meus dados são guardados?</summary>
+            <div class="faq-body"><p>Não. As datas ficam apenas no seu navegador durante a sessão e nunca são enviadas para servidores. Ao fechar ou atualizar a página, os valores desaparecem.</p></div>
+          </details>
+        </div>
+
+        <h2>Ferramentas relacionadas</h2>
+        <div class="grid grid--3" id="related-tools" data-current-tool="calculadora-de-idade"></div>
+
+        <p class="mt-2">Leia também <a href="../blog/posts/como-calcular-a-idade.html">Como calcular a idade corretamente</a> e consulte a categoria <a href="../tools.html?categoria=calculadoras">Calculadoras</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer footer-brand">
+        <a class="brand" href="../index.html" aria-label="SmartTools Hub — Página inicial">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></svg></span>
+          <span class="brand-text"><strong>SmartTools Hub</strong><small>Simple Tools. Smart Solutions.</small></span>
+        </a>
+        <p>Ferramentas online gratuitas, rápidas e privadas para o dia a dia. Tudo funciona no seu navegador, sem registos e sem enviar dados para servidores.</p>
+        <div class="social-links">
+          <a href="#" title="Ligação de demonstração" aria-label="Facebook (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3a3.6 3.6 0 0 0-3.6 3.6V11H8v3h2.4v7h3v-7H16l.5-3h-3.1V9.9c0-.5.4-.9 1-.9Z"/></svg></a>
+          <a href="#" title="Ligação de demonstração" aria-label="Instagram (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" title="Ligação de demonstração" aria-label="X (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 4.5 19 19.5"/><path d="M19 4.5 5 19.5"/></svg></a>
+          <a href="#" title="Ligação de demonstração" aria-label="YouTube (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="4"/><path d="m10.5 9.5 5 2.5-5 2.5Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../tools.html">Ferramentas</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li><a href="../about.html">Sobre Nós</a></li>
+          <li><a href="../contact.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h3>Categorias</h3>
+        <ul>
+          <li><a href="../tools.html?categoria=texto">Ferramentas de Texto</a></li>
+          <li><a href="../tools.html?categoria=calculadoras">Calculadoras</a></li>
+          <li><a href="../tools.html?categoria=conversores">Conversores</a></li>
+          <li><a href="../tools.html?categoria=programadores">Programadores</a></li>
+          <li><a href="../tools.html?categoria=produtividade">Produtividade</a></li>
+          <li><a href="../tools.html?categoria=praticas">Ferramentas Práticas</a></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h3>Legal e contacto</h3>
+        <ul>
+          <li><a href="../privacy-policy.html">Política de Privacidade</a></li>
+          <li><a href="../terms.html">Termos de Utilização</a></li>
+          <li><a href="../about.html">Sobre Nós</a></li>
+          <li><a href="../contact.html">Contacto</a></li>
+          <li><a href="mailto:contacto@smarttoolshub.com">contacto@smarttoolshub.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-current-year>2026</span> SmartTools Hub. Todos os direitos reservados.</p>
+      <nav aria-label="Ligações legais">
+        <a href="../privacy-policy.html">Privacidade</a>
+        <a href="../terms.html">Termos</a>
+        <a href="../sitemap.xml">Mapa do site</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="../assets/js/main.js"></script>
+<script type="module" src="../assets/js/pages/tool-page.js"></script>
+<script type="module" src="../assets/js/tools/age-calculator.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# robots.txt - SmartTools Hub
+# https://www.smarttoolshub.com/
+
+User-agent: *
+Allow: /
+
+# The 404 page must not be indexed.
+Disallow: /404.html
+
+# Ad and analytics crawlers are welcome to verify the site.
+User-agent: Mediapartners-Google
+Allow: /
+
+Sitemap: https://www.smarttoolshub.com/sitemap.xml

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-PT" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Porcentagem com Passo a Passo | SmartTools Hub</title>
+<meta name="description" content="Calcule percentagens, descontos, aumentos e variações percentuais. Cinco modos de cálculo com validação de dados e explicação da fórmula passo a passo.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://www.smarttoolshub.com/ferramentas/calculadora-de-porcentagem.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartTools Hub">
+<meta property="og:title" content="Calculadora de Porcentagem com Passo a Passo | SmartTools Hub">
+<meta property="og:description" content="Cinco modos de cálculo: X% de Y, variação percentual, descontos e valor original.">
+<meta property="og:url" content="https://www.smarttoolshub.com/ferramentas/calculadora-de-porcentagem.html">
+<meta property="og:image" content="https://www.smarttoolshub.com/assets/img/og-default.svg">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('sth-theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Calculadora de Porcentagem",
+      "url": "https://www.smarttoolshub.com/ferramentas/calculadora-de-porcentagem.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Qualquer navegador moderno",
+      "inLanguage": "pt-PT",
+      "description": "Calcula percentagens, variações, descontos e valores originais com explicação da fórmula.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "isPartOf": { "@id": "https://www.smarttoolshub.com/#website" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como calculo X% de um valor?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Multiplique o valor pela percentagem e divida por 100. Por exemplo, 15% de 200 é 200 × 15 ÷ 100 = 30." }
+        },
+        {
+          "@type": "Question",
+          "name": "Como calculo o preço final com desconto?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Calcule o valor do desconto multiplicando o preço pela percentagem e dividindo por 100; depois subtraia esse valor ao preço original. Para 80 com 25% de desconto: 80 × 25 ÷ 100 = 20, logo o preço final é 60." }
+        },
+        {
+          "@type": "Question",
+          "name": "Porque é que a variação percentual não pode usar zero como valor inicial?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A variação percentual é calculada dividindo a diferença pelo valor inicial. Se o valor inicial for zero, a divisão por zero não tem resultado definido, pelo que a variação percentual deixa de ter significado." }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso usar vírgula como separador decimal?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sim. Pode escrever 12,5 ou 12.5. A ferramenta aceita os dois formatos e ignora espaços usados como separador de milhares." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-base="../" data-page="tools">
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo principal</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html" aria-label="SmartTools Hub — Página inicial">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></svg></span>
+      <span class="brand-text"><strong>SmartTools Hub</strong><small>Simple Tools. Smart Solutions.</small></span>
+    </a>
+    <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../tools.html" aria-current="page">Ferramentas</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../about.html">Sobre Nós</a></li>
+        <li><a href="../contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Ativar modo escuro" title="Alternar modo claro e escuro">
+        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v1.8"/><path d="M12 19.7v1.8"/><path d="M4.2 4.2l1.3 1.3"/><path d="M18.5 18.5l1.3 1.3"/><path d="M2.5 12h1.8"/><path d="M19.7 12h1.8"/><path d="M4.2 19.8l1.3-1.3"/><path d="M18.5 5.5l1.3-1.3"/></svg>
+        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay"></div>
+
+<main id="conteudo">
+  <section class="section section--tight">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Navegação estrutural">
+        <ol>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../tools.html">Ferramentas</a></li>
+          <li><span aria-current="page">Calculadora de Porcentagem</span></li>
+        </ol>
+      </nav>
+
+      <div class="section-head">
+        <span class="eyebrow">Calculadoras</span>
+        <h1>Calculadora de Porcentagem</h1>
+        <p class="lead">Escolha o modo de cálculo, introduza os valores e veja o resultado com a fórmula aplicada passo a passo. Ideal para descontos, aumentos, variações de preços e comparações de proporções.</p>
+      </div>
+
+      <div class="tool-layout" id="calculadora-porcentagem">
+        <div class="panel">
+          <div class="panel-head"><h2>Dados do cálculo</h2></div>
+
+          <div class="tabs" role="tablist" aria-label="Modo de cálculo">
+            <button class="tab" type="button" role="tab" id="tab-x-de-y" aria-controls="painel-x-de-y" aria-selected="true" data-mode="x-de-y">X% de Y</button>
+            <button class="tab" type="button" role="tab" id="tab-quanto-porcento" aria-controls="painel-quanto-porcento" aria-selected="false" tabindex="-1" data-mode="quanto-porcento">Quanto por cento</button>
+            <button class="tab" type="button" role="tab" id="tab-variacao" aria-controls="painel-variacao" aria-selected="false" tabindex="-1" data-mode="variacao">Variação</button>
+            <button class="tab" type="button" role="tab" id="tab-desconto" aria-controls="painel-desconto" aria-selected="false" tabindex="-1" data-mode="desconto">Desconto</button>
+            <button class="tab" type="button" role="tab" id="tab-valor-original" aria-controls="painel-valor-original" aria-selected="false" tabindex="-1" data-mode="valor-original">Valor original</button>
+          </div>
+
+          <div class="tabpanel" id="painel-x-de-y" role="tabpanel" aria-labelledby="tab-x-de-y" data-panel="x-de-y">
+            <div class="field-row">
+              <div class="field">
+                <label for="p1-percent">Percentagem (%)</label>
+                <input class="input" id="p1-percent" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 15" aria-describedby="p1-percent-erro">
+                <span class="field-error" id="p1-percent-erro" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="p1-value">Valor base</label>
+                <input class="input" id="p1-value" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 200" aria-describedby="p1-value-erro">
+                <span class="field-error" id="p1-value-erro" role="alert"></span>
+              </div>
+            </div>
+            <p class="hint">Exemplo: 15% de 200 = 30.</p>
+          </div>
+
+          <div class="tabpanel" id="painel-quanto-porcento" role="tabpanel" aria-labelledby="tab-quanto-porcento" data-panel="quanto-porcento" hidden>
+            <div class="field-row">
+              <div class="field">
+                <label for="p2-part">Parte</label>
+                <input class="input" id="p2-part" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 45" aria-describedby="p2-part-erro">
+                <span class="field-error" id="p2-part-erro" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="p2-whole">Total</label>
+                <input class="input" id="p2-whole" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 180" aria-describedby="p2-whole-erro">
+                <span class="field-error" id="p2-whole-erro" role="alert"></span>
+              </div>
+            </div>
+            <p class="hint">Descubra que percentagem a parte representa do total.</p>
+          </div>
+
+          <div class="tabpanel" id="painel-variacao" role="tabpanel" aria-labelledby="tab-variacao" data-panel="variacao" hidden>
+            <div class="field-row">
+              <div class="field">
+                <label for="p3-from">Valor inicial</label>
+                <input class="input" id="p3-from" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 250" aria-describedby="p3-from-erro">
+                <span class="field-error" id="p3-from-erro" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="p3-to">Valor final</label>
+                <input class="input" id="p3-to" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 300" aria-describedby="p3-to-erro">
+                <span class="field-error" id="p3-to-erro" role="alert"></span>
+              </div>
+            </div>
+            <p class="hint">O sinal indica automaticamente se houve aumento ou diminuição.</p>
+          </div>
+
+          <div class="tabpanel" id="painel-desconto" role="tabpanel" aria-labelledby="tab-desconto" data-panel="desconto" hidden>
+            <div class="field-row">
+              <div class="field">
+                <label for="p4-price">Preço original</label>
+                <input class="input" id="p4-price" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 80" aria-describedby="p4-price-erro">
+                <span class="field-error" id="p4-price-erro" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="p4-discount">Desconto (%)</label>
+                <input class="input" id="p4-discount" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 25" aria-describedby="p4-discount-erro">
+                <span class="field-error" id="p4-discount-erro" role="alert"></span>
+              </div>
+            </div>
+            <p class="hint">Mostra o preço final e quanto se poupa.</p>
+          </div>
+
+          <div class="tabpanel" id="painel-valor-original" role="tabpanel" aria-labelledby="tab-valor-original" data-panel="valor-original" hidden>
+            <div class="field-row">
+              <div class="field">
+                <label for="p5-final">Valor final</label>
+                <input class="input" id="p5-final" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 115" aria-describedby="p5-final-erro">
+                <span class="field-error" id="p5-final-erro" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="p5-rate">Variação aplicada (%)</label>
+                <input class="input" id="p5-rate" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 15 ou -15" aria-describedby="p5-rate-erro">
+                <span class="field-error" id="p5-rate-erro" role="alert"></span>
+              </div>
+            </div>
+            <p class="hint">Use um valor negativo para descontos (por exemplo -15).</p>
+          </div>
+
+          <div class="tool-actions">
+            <button class="btn btn-primary" type="button" id="btn-copiar-resultado">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copiar resultado
+            </button>
+            <button class="btn btn-ghost" type="button" id="btn-reset">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.4 5.7"/><path d="M20 4.5V11h-6.5"/></svg>
+              Reiniciar
+            </button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h2>Resultado</h2></div>
+          <div class="result-box" id="caixa-resultado">
+            <span class="result-label" id="resultado-rotulo">Resultado</span>
+            <span class="result-value" id="resultado-valor">—</span>
+            <span class="result-detail" id="resultado-detalhe">Preencha os campos para ver o cálculo.</span>
+          </div>
+
+          <div class="alert alert--error mt-2" id="porcentagem-alerta" role="alert" hidden></div>
+
+          <div class="mt-2" data-passos hidden>
+            <h3>Cálculo passo a passo</h3>
+            <ol class="steps" id="resultado-passos"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <aside class="ad-slot ad-slot--inline" data-ad-slot="" aria-label="Espaço reservado para publicidade"></aside>
+  </div>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="prose">
+        <h2>Como usar a calculadora</h2>
+        <ol>
+          <li>Escolha o modo de cálculo nos separadores: <strong>X% de Y</strong>, <strong>Quanto por cento</strong>, <strong>Variação</strong>, <strong>Desconto</strong> ou <strong>Valor original</strong>.</li>
+          <li>Preencha os dois campos do modo escolhido. Pode usar vírgula ou ponto como separador decimal.</li>
+          <li>O resultado e a explicação passo a passo aparecem automaticamente.</li>
+        </ol>
+        <p>Se algum valor estiver em falta ou não for um número válido, a ferramenta indica o campo exato que precisa de correção em vez de apresentar um resultado incorreto.</p>
+
+        <h2>O que cada modo calcula</h2>
+        <h3>X% de Y</h3>
+        <p>Responde à pergunta mais comum: quanto é uma determinada percentagem de um valor. A fórmula é <code>resultado = valor × percentagem ÷ 100</code>. Por exemplo, 15% de 200 = 30.</p>
+
+        <h3>Quanto por cento</h3>
+        <p>Indica que fração, em percentagem, uma parte representa de um total. A fórmula é <code>percentagem = (parte ÷ total) × 100</code>. Por exemplo, 45 em 180 corresponde a 25%.</p>
+
+        <h3>Variação percentual</h3>
+        <p>Compara dois valores e indica o aumento ou a diminuição em percentagem. A fórmula é <code>variação = ((valor final − valor inicial) ÷ |valor inicial|) × 100</code>. Um sinal positivo é aumento, um sinal negativo é diminuição.</p>
+
+        <h3>Desconto</h3>
+        <p>Aplica uma redução percentual a um preço. Calcula o valor poupado e o preço final. A fórmula do preço final é <code>preço × (1 − desconto ÷ 100)</code>.</p>
+
+        <h3>Valor original</h3>
+        <p>Faz o caminho inverso: a partir do valor final e da variação aplicada, descobre o valor inicial. A fórmula é <code>valor original = valor final ÷ (1 + variação ÷ 100)</code>. Use valores negativos para descontos.</p>
+
+        <h2>Exemplos práticos</h2>
+        <h3>Preço de uma loja</h3>
+        <p>Um artigo custa 80 e está com 25% de desconto. O valor do desconto é 80 × 25 ÷ 100 = 20, pelo que o preço final é 60.</p>
+
+        <h3>Orçamento familiar</h3>
+        <p>Se a renda subiu de 250 para 300, a variação é ((300 − 250) ÷ 250) × 100 = 20%. A ferramenta mostra também a diferença absoluta, 50 unidades.</p>
+
+        <h3>Conferir uma fatura</h3>
+        <p>Se a fatura final é 115 e a taxa aplicada foi de 15%, o valor antes da taxa era 115 ÷ 1,15 = 100. Este é exatamente o cálculo do modo <strong>Valor original</strong>.</p>
+
+        <h3>Resultados de testes</h3>
+        <p>Com 45 respostas corretas em 180 perguntas, a taxa de acerto é (45 ÷ 180) × 100 = 25%. O modo <strong>Quanto por cento</strong> faz esta conta automaticamente.</p>
+
+        <h2>Perguntas frequentes</h2>
+        <div class="faq">
+          <details>
+            <summary>Como calculo X% de um valor?</summary>
+            <div class="faq-body"><p>Multiplique o valor pela percentagem e divida por 100. Por exemplo, 15% de 200 é 200 × 15 ÷ 100 = 30.</p></div>
+          </details>
+          <details>
+            <summary>Como calculo o preço final com desconto?</summary>
+            <div class="faq-body"><p>Calcule o valor do desconto multiplicando o preço pela percentagem e dividindo por 100; depois subtraia esse valor ao preço original. Para 80 com 25% de desconto: 80 × 25 ÷ 100 = 20, logo o preço final é 60.</p></div>
+          </details>
+          <details>
+            <summary>Porque é que a variação percentual não pode usar zero como valor inicial?</summary>
+            <div class="faq-body"><p>A variação percentual é calculada dividindo a diferença pelo valor inicial. Se o valor inicial for zero, a divisão por zero não tem resultado definido, pelo que a variação percentual deixa de ter significado.</p></div>
+          </details>
+          <details>
+            <summary>Posso usar vírgula como separador decimal?</summary>
+            <div class="faq-body"><p>Sim. Pode escrever <code>12,5</code> ou <code>12.5</code>. A ferramenta aceita os dois formatos e ignora espaços usados como separador de milhares.</p></div>
+          </details>
+          <details>
+            <summary>A percentagem pode ser superior a 100?</summary>
+            <div class="faq-body"><p>Sim, em cálculos de "X% de Y" ou de "Quanto por cento". No modo desconto, valores acima de 100% são recusados porque tornariam o preço final negativo.</p></div>
+          </details>
+          <details>
+            <summary>Com quantas casas decimais é apresentado o resultado?</summary>
+            <div class="faq-body"><p>Até quatro casas decimais, sem zeros desnecessários. Os cálculos internos usam a precisão completa do JavaScript, apenas a apresentação é arredondada.</p></div>
+          </details>
+        </div>
+
+        <h2>Ferramentas relacionadas</h2>
+        <div class="grid grid--3" id="related-tools" data-current-tool="calculadora-de-porcentagem"></div>
+
+        <p class="mt-2">Leia também <a href="../blog/posts/como-calcular-percentagens.html">Como calcular percentagens facilmente</a> e consulte a categoria <a href="../tools.html?categoria=calculadoras">Calculadoras</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer footer-brand">
+        <a class="brand" href="../index.html" aria-label="SmartTools Hub — Página inicial">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></svg></span>
+          <span class="brand-text"><strong>SmartTools Hub</strong><small>Simple Tools. Smart Solutions.</small></span>
+        </a>
+        <p>Ferramentas online gratuitas, rápidas e privadas para o dia a dia. Tudo funciona no seu navegador, sem registos e sem enviar dados para servidores.</p>
+        <div class="social-links">
+          <a href="#" title="Ligação de demonstração" aria-label="Facebook (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3a3.6 3.6 0 0 0-3.6 3.6V11H8v3h2.4v7h3v-7H16l.5-3h-3.1V9.9c0-.5.4-.9 1-.9Z"/></svg></a>
+          <a href="#" title="Ligação de demonstração" aria-label="Instagram (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" title="Ligação de demonstração" aria-label="X (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 4.5 19 19.5"/><path d="M19 4.5 5 19.5"/></svg></a>
+          <a href="#" title="Ligação de demonstração" aria-label="YouTube (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="4"/><path d="m10.5 9.5 5 2.5-5 2.5Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../tools.html">Ferramentas</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li><a href="../about.html">Sobre Nós</a></li>
+          <li><a href="../contact.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h3>Categorias</h3>
+        <ul>
+          <li><a href="../tools.html?categoria=texto">Ferramentas de Texto</a></li>
+          <li><a href="../tools.html?categoria=calculadoras">Calculadoras</a></li>
+          <li><a href="../tools.html?categoria=conversores">Conversores</a></li>
+          <li><a href="../tools.html?categoria=programadores">Programadores</a></li>
+          <li><a href="../tools.html?categoria=produtividade">Produtividade</a></li>
+          <li><a href="../tools.html?categoria=praticas">Ferramentas Práticas</a></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h3>Legal e contacto</h3>
+        <ul>
+          <li><a href="../privacy-policy.html">Política de Privacidade</a></li>
+          <li><a href="../terms.html">Termos de Utilização</a></li>
+          <li><a href="../about.html">Sobre Nós</a></li>
+          <li><a href="../contact.html">Contacto</a></li>
+          <li><a href="mailto:contacto@smarttoolshub.com">contacto@smarttoolshub.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-current-year>2026</span> SmartTools Hub. Todos os direitos reservados.</p>
+      <nav aria-label="Ligações legais">
+        <a href="../privacy-policy.html">Privacidade</a>
+        <a href="../terms.html">Termos</a>
+        <a href="../sitemap.xml">Mapa do site</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="../assets/js/main.js"></script>
+<script type="module" src="../assets/js/pages/tool-page.js"></script>
+<script type="module" src="../assets/js/tools/percentage-calculator.js"></script>
+</body>
+</html>

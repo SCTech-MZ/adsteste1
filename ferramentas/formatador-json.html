@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-PT" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formatador e Validador JSON Online | SmartTools Hub</title>
+<meta name="description" content="Formate, minifique e valide JSON online com mensagens de erro claras, indicação de linha e coluna e estatísticas do documento. Privado e sem instalações.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://www.smarttoolshub.com/ferramentas/formatador-json.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartTools Hub">
+<meta property="og:title" content="Formatador e Validador JSON Online | SmartTools Hub">
+<meta property="og:description" content="Formate, minifique e valide JSON com erros de sintaxe explicados em português.">
+<meta property="og:url" content="https://www.smarttoolshub.com/ferramentas/formatador-json.html">
+<meta property="og:image" content="https://www.smarttoolshub.com/assets/img/og-default.svg">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('sth-theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Formatador e Validador JSON",
+      "url": "https://www.smarttoolshub.com/ferramentas/formatador-json.html",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Qualquer navegador moderno",
+      "inLanguage": "pt-PT",
+      "description": "Formata, minifica e valida JSON com mensagens de erro detalhadas.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "isPartOf": { "@id": "https://www.smarttoolshub.com/#website" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O JSON é enviado para algum servidor?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Não. A validação e a formatação são feitas no seu navegador com JSON.parse e JSON.stringify. Nenhum conteúdo é transmitido, pelo que pode validar payloads internos com segurança." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais são os erros de JSON mais comuns?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Os erros mais frequentes são vírgulas a mais antes de uma chave de fecho, aspas simples em vez de aspas duplas, chaves sem aspas, comentários e vírgulas finais." }
+        },
+        {
+          "@type": "Question",
+          "name": "Porque é que o JSON não aceita comentários?",
+          "acceptedAnswer": { "@type": "Answer", "text": "O formato JSON, definido na norma RFC 8259, não inclui comentários. Se precisar de comentários, use JSONC ou um ficheiro de configuração próprio, mas não os envie como JSON válido para APIs." }
+        },
+        {
+          "@type": "Question",
+          "name": "A ferramenta usa eval()?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Não. Apenas JSON.parse é usado, o que significa que o conteúdo é tratado como dados e nunca como código." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-base="../" data-page="tools">
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo principal</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html" aria-label="SmartTools Hub — Página inicial">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></svg></span>
+      <span class="brand-text"><strong>SmartTools Hub</strong><small>Simple Tools. Smart Solutions.</small></span>
+    </a>
+    <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../tools.html" aria-current="page">Ferramentas</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../about.html">Sobre Nós</a></li>
+        <li><a href="../contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Ativar modo escuro" title="Alternar modo claro e escuro">
+        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v1.8"/><path d="M12 19.7v1.8"/><path d="M4.2 4.2l1.3 1.3"/><path d="M18.5 18.5l1.3 1.3"/><path d="M2.5 12h1.8"/><path d="M19.7 12h1.8"/><path d="M4.2 19.8l1.3-1.3"/><path d="M18.5 5.5l1.3-1.3"/></svg>
+        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay"></div>
+
+<main id="conteudo">
+  <section class="section section--tight">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Navegação estrutural">
+        <ol>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../tools.html">Ferramentas</a></li>
+          <li><span aria-current="page">Formatador e Validador JSON</span></li>
+        </ol>
+      </nav>
+
+      <div class="section-head">
+        <span class="eyebrow">Ferramentas para Programadores</span>
+        <h1>Formatador e Validador JSON</h1>
+        <p class="lead">Cole o seu JSON para o formatar, minificar ou validar. Quando existe um erro de sintaxe, a ferramenta explica o problema, indica a linha e a coluna e mostra o ponto exato do documento. Tudo é processado no navegador.</p>
+      </div>
+
+      <div class="tool-layout" id="formatador-json" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Editor JSON</h2>
+            <div class="cluster">
+              <span class="badge badge--neutral" id="json-estado">Sem dados</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="json-entrada">JSON de entrada</label>
+            <textarea class="textarea textarea--mono" id="json-entrada" rows="16" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder='{ "exemplo": true }' aria-describedby="json-entrada-ajuda"></textarea>
+            <span class="hint" id="json-entrada-ajuda">O JSON é validado automaticamente enquanto escreve. Nada é enviado para servidores.</span>
+          </div>
+
+          <div class="field-row">
+            <div class="field mb-0">
+              <label for="json-indent">Indentação</label>
+              <select class="select" id="json-indent">
+                <option value="2">2 espaços</option>
+                <option value="4">4 espaços</option>
+                <option value="tab">Tabulação</option>
+              </select>
+            </div>
+            <div class="field mb-0">
+              <label for="json-ficheiro">Carregar ficheiro .json</label>
+              <input class="input" id="json-ficheiro" type="file" accept=".json,application/json,text/plain">
+            </div>
+          </div>
+
+          <div class="field mt-2">
+            <label class="cluster" for="json-sort" style="font-weight:600">
+              <input type="checkbox" id="json-sort">
+              <span>Ordenar chaves por ordem alfabética</span>
+            </label>
+          </div>
+
+          <div class="tool-actions">
+            <button class="btn btn-primary" type="button" id="btn-formatar">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h13"/></svg>
+              Formatar
+            </button>
+            <button class="btn btn-secondary" type="button" id="btn-minificar">Minificar</button>
+            <button class="btn btn-secondary" type="button" id="btn-validar">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/></svg>
+              Validar
+            </button>
+            <button class="btn btn-ghost" type="button" id="btn-exemplo">Exemplo</button>
+            <button class="btn btn-ghost" type="button" id="btn-copiar-json">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copiar
+            </button>
+            <button class="btn btn-danger-ghost" type="button" id="btn-limpar">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4.5A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5V6"/><path d="M6 6v13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+              Limpar
+            </button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h2>Resultado e diagnóstico</h2></div>
+
+          <div class="alert alert--info" id="json-alerta" role="status" hidden></div>
+
+          <div class="field mt-2">
+            <label for="json-saida">JSON de saída</label>
+            <textarea class="textarea textarea--mono" id="json-saida" rows="12" readonly spellcheck="false" placeholder="O resultado formatado ou minificado aparece aqui."></textarea>
+          </div>
+
+          <div id="json-estatisticas">
+            <h3>Estatísticas do documento</h3>
+            <div class="stats">
+              <div class="stat"><span class="stat-label">Chaves</span><span class="stat-value stat-value--text" id="stat-json-chaves">—</span></div>
+              <div class="stat"><span class="stat-label">Profundidade</span><span class="stat-value stat-value--text" id="stat-json-profundidade">—</span></div>
+              <div class="stat"><span class="stat-label">Nós</span><span class="stat-value stat-value--text" id="stat-json-nos">—</span></div>
+              <div class="stat"><span class="stat-label">Tamanho do texto</span><span class="stat-value stat-value--text" id="stat-json-tamanho">—</span></div>
+              <div class="stat"><span class="stat-label">Tipo na raiz</span><span class="stat-value stat-value--text" id="stat-json-tipo">—</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <aside class="ad-slot ad-slot--inline" data-ad-slot="" aria-label="Espaço reservado para publicidade"></aside>
+  </div>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="prose">
+        <h2>Como usar o formatador JSON</h2>
+        <ol>
+          <li>Cole o JSON na caixa <strong>JSON de entrada</strong> ou carregue um ficheiro <code>.json</code>.</li>
+          <li>Escolha a indentação pretendida (2 espaços, 4 espaços ou tabulação).</li>
+          <li>Clique em <strong>Formatar</strong> para organizar o documento, <strong>Minificar</strong> para remover todos os espaços desnecessários ou <strong>Validar</strong> para apenas verificar a sintaxe.</li>
+          <li>Se existir um erro, aparece uma explicação com a linha, a coluna e o ponto exato do problema.</li>
+          <li>Copie o resultado com <strong>Copiar</strong> ou limpe tudo com <strong>Limpar</strong>.</li>
+        </ol>
+
+        <h2>O que é JSON</h2>
+        <p>JSON (<em>JavaScript Object Notation</em>) é um formato de texto para representar dados estruturados. Foi definido na norma <strong>RFC 8259</strong> e tornou-se a linguagem comum das APIs web, ficheiros de configuração e bases de dados documentais.</p>
+        <p>Um documento JSON é composto por seis tipos de valores: objetos, arrays, strings, números, booleanos e <code>null</code>. Um objeto é um conjunto de pares chave-valor entre chaves <code>{ }</code>; um array é uma lista ordenada entre parênteses retos <code>[ ]</code>.</p>
+
+        <h3>Exemplo de JSON válido</h3>
+        <pre><code>{
+  "produto": "Teclado",
+  "preco": 39.9,
+  "disponivel": true,
+  "etiquetas": ["informática", "acessórios"],
+  "detalhes": { "cor": "preto", "garantia": null }
+}</code></pre>
+
+        <h2>Regras essenciais da sintaxe</h2>
+        <ul>
+          <li>As chaves e as strings usam obrigatoriamente <strong>aspas duplas</strong>. Aspas simples não são válidas.</li>
+          <li>Os pares chave-valor são separados por vírgulas, mas <strong>não</strong> pode existir vírgula depois do último elemento.</li>
+          <li>Os comentários não fazem parte do formato. Um ficheiro com <code>//</code> ou <code>/* */</code> não é JSON válido.</li>
+          <li>Os números não podem começar por <code>+</code> nem usar separadores de milhares. Zero à esquerda também não é permitido.</li>
+          <li>Os valores devem ser um dos seis tipos suportados. Funções, <code>undefined</code> e datas não existem em JSON.</li>
+        </ul>
+
+        <h2>Erros mais comuns e como os resolver</h2>
+        <h3>Vírgula final</h3>
+        <p>É o erro mais frequente, sobretudo em objetos editados à mão. Remova a vírgula que aparece imediatamente antes de <code>}</code> ou <code>]</code>.</p>
+
+        <h3>Aspas simples</h3>
+        <p>Vindo de JavaScript ou Python, é natural usar aspas simples. Em JSON, substitua todas por aspas duplas. Se a string já contiver aspas duplas, escape-as com <code>\"</code>.</p>
+
+        <h3>Comentários</h3>
+        <p>Se o ficheiro é uma configuração que precisa de comentários, considere JSONC ou outro formato. Para uma API, os comentários devem ser removidos.</p>
+
+        <h3>Objetos concatenados</h3>
+        <p>Dois documentos JSON no mesmo ficheiro não formam um JSON válido. Coloque-os dentro de um array para os agrupar.</p>
+
+        <h2>Casos de uso prático</h2>
+        <ul>
+          <li><strong>Depurar respostas de API:</strong> formate a resposta para inspecionar rapidamente a estrutura e a profundidade dos objetos.</li>
+          <li><strong>Reduzir payloads:</strong> minifique antes de guardar dados num campo de texto limitado ou de os enviar por um canal restrito.</li>
+          <li><strong>Revisão de configurações:</strong> valide ficheiros de configuração antes de os aplicar num serviço.</li>
+          <li><strong>Comparar versões:</strong> com as chaves ordenadas, as diferenças entre duas versões tornam-se muito mais fáceis de identificar.</li>
+        </ul>
+
+        <h2>Perguntas frequentes</h2>
+        <div class="faq">
+          <details>
+            <summary>O JSON é enviado para algum servidor?</summary>
+            <div class="faq-body"><p>Não. A validação e a formatação são feitas no seu navegador com <code>JSON.parse</code> e <code>JSON.stringify</code>. Nenhum conteúdo é transmitido, pelo que pode validar payloads internos com segurança.</p></div>
+          </details>
+          <details>
+            <summary>Quais são os erros de JSON mais comuns?</summary>
+            <div class="faq-body"><p>Os erros mais frequentes são vírgulas a mais antes de uma chave de fecho, aspas simples em vez de aspas duplas, chaves sem aspas, comentários e vírgulas finais.</p></div>
+          </details>
+          <details>
+            <summary>Porque é que o JSON não aceita comentários?</summary>
+            <div class="faq-body"><p>O formato JSON, definido na norma RFC 8259, não inclui comentários. Se precisar de comentários, use JSONC ou um ficheiro de configuração próprio, mas não os envie como JSON válido para APIs.</p></div>
+          </details>
+          <details>
+            <summary>A ferramenta usa eval()?</summary>
+            <div class="faq-body"><p>Não. Apenas <code>JSON.parse</code> é usado, o que significa que o conteúdo é tratado como dados e nunca como código.</p></div>
+          </details>
+          <details>
+            <summary>Qual é o tamanho máximo do documento?</summary>
+            <div class="faq-body"><p>Não existe um limite imposto pela ferramenta para texto colado. O carregamento de ficheiros está limitado a 5 MB para manter o navegador responsivo.</p></div>
+          </details>
+          <details>
+            <summary>As chaves ordenadas alteram o significado do documento?</summary>
+            <div class="faq-body"><p>Não. Em JSON a ordem das chaves de um objeto não tem significado semântico. Num array, a ordem é relevante e nunca é alterada.</p></div>
+          </details>
+        </div>
+
+        <h2>Ferramentas relacionadas</h2>
+        <div class="grid grid--3" id="related-tools" data-current-tool="formatador-json"></div>
+
+        <p class="mt-2">Leia também <a href="../blog/posts/o-que-e-json.html">O que é JSON e como utilizá-lo?</a> e consulte a categoria <a href="../tools.html?categoria=programadores">Ferramentas para Programadores</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer footer-brand">
+        <a class="brand" href="../index.html" aria-label="SmartTools Hub — Página inicial">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></svg></span>
+          <span class="brand-text"><strong>SmartTools Hub</strong><small>Simple Tools. Smart Solutions.</small></span>
+        </a>
+        <p>Ferramentas online gratuitas, rápidas e privadas para o dia a dia. Tudo funciona no seu navegador, sem registos e sem enviar dados para servidores.</p>
+        <div class="social-links">
+          <a href="#" title="Ligação de demonstração" aria-label="Facebook (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3a3.6 3.6 0 0 0-3.6 3.6V11H8v3h2.4v7h3v-7H16l.5-3h-3.1V9.9c0-.5.4-.9 1-.9Z"/></svg></a>
+          <a href="#" title="Ligação de demonstração" aria-label="Instagram (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" title="Ligação de demonstração" aria-label="X (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 4.5 19 19.5"/><path d="M19 4.5 5 19.5"/></svg></a>
+          <a href="#" title="Ligação de demonstração" aria-label="YouTube (ligação de demonstração)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="4"/><path d="m10.5 9.5 5 2.5-5 2.5Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../tools.html">Ferramentas</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li><a href="../about.html">Sobre Nós</a></li>
+          <li><a href="../contact.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h3>Categorias</h3>
+        <ul>
+          <li><a href="../tools.html?categoria=texto">Ferramentas de Texto</a></li>
+          <li><a href="../tools.html?categoria=calculadoras">Calculadoras</a></li>
+          <li><a href="../tools.html?categoria=conversores">Conversores</a></li>
+          <li><a href="../tools.html?categoria=programadores">Programadores</a></li>
+          <li><a href="../tools.html?categoria=produtividade">Produtividade</a></li>
+          <li><a href="../tools.html?categoria=praticas">Ferramentas Práticas</a></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h3>Legal e contacto</h3>
+        <ul>
+          <li><a href="../privacy-policy.html">Política de Privacidade</a></li>
+          <li><a href="../terms.html">Termos de Utilização</a></li>
+          <li><a href="../about.html">Sobre Nós</a></li>
+          <li><a href="../contact.html">Contacto</a></li>
+          <li><a href="mailto:contacto@smarttoolshub.com">contacto@smarttoolshub.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-current-year>2026</span> SmartTools Hub. Todos os direitos reservados.</p>
+      <nav aria-label="Ligações legais">
+        <a href="../privacy-policy.html">Privacidade</a>
+        <a href="../terms.html">Termos</a>
+        <a href="../sitemap.xml">Mapa do site</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="../assets/js/main.js"></script>
+<script type="module" src="../assets/js/pages/tool-page.js"></script>
+<script type="module" src="../assets/js/tools/json-formatter.js"></script>
+</body>
+</html>
